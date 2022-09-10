@@ -143,4 +143,54 @@ bu.holdable.hold {
 
 elevator bu.holdable.hold {
   background-color : coral;
+  filter : none;
+}
+
+elevator bu.control-door:active {
+  filter : none;
+  background-color : #33333355;
+  color : white;
+}
+
+waiting-line {
+  display : inline-flex;
+  position : absolute;
+  bottom : 0;
+  left : 0;
+  width : 40%;
+  height : 50%;
+  padding-right: 50px;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+client {
+  display : inline-block;
+  position : relative;
+  width : 60px;
+  height : 80%;
+  font-size : 50px;
+}
+
+client::after {
+  display : inline-block;
+  position : absolute;
+  top : 0;
+  right : 0;
+  font-size : 20px;
+}
+
+client[target-floor="1"]::after {
+  content : '1';
+}
+client[target-floor="2"]::after {
+  content : '2';
+}
+client[target-floor="3"]::after {
+  content : '3';
+}
+
+client[target-floor="4"]::after {
+  content : '4';
 }

@@ -9,24 +9,47 @@
   <body>
     <building>
       <floor id="floor-1">
+        <h1>1</h1>
+        <waiting-line>
+          <client target-floor="1">🧍</client>
+          <client target-floor="2">🧍</client>
+          <client target-floor="3">🧍</client>
+          <client target-floor="4">🧍</client>
+          <client target-floor="4">🧍</client>
+        </waiting-line>
         <buttongroup>
           <bu class="holdable up">🔼</bu>
           <bu class="holdable down">🔽</bu>
         </buttongroup>
       </floor>
       <floor id="floor-2">
+        <h1>2</h1>
+        <waiting-line>
+          <client target-floor="1">🧍</client>
+          <client target-floor="2">🧍</client>
+        </waiting-line>
         <buttongroup>
           <bu class="holdable up">🔼</bu>
           <bu class="holdable down">🔽</bu>
         </buttongroup>
       </floor>
       <floor id="floor-3">
+        <h1>3</h1>
+        <waiting-line>
+          <client target-floor="1">🧍</client>
+          <client target-floor="2">🧍</client>
+        </waiting-line>
         <buttongroup>
           <bu class="holdable up">🔼</bu>
           <bu class="holdable down">🔽</bu>
         </buttongroup>
       </floor>
       <floor id="floor-4">
+        <h1>4</h1>
+        <waiting-line>
+          <client target-floor="1">🧍</client>
+          <client target-floor="2">🧍</client>
+        </waiting-line>
         <buttongroup>
           <bu class="holdable up">🔼</bu>
           <bu class="holdable down">🔽</bu>
@@ -37,8 +60,8 @@
           <door id="left-door"></door>
           <door id="right-door"></door>
           <buttongroup>
-            <bu id="open"><|></bu>
-            <bu id="close">>|<</bu>
+            <bu class="control-door" id="open"><|></bu>
+            <bu class="control-door" id="close">>|<</bu>
             <bu class="holdable select-floor" id="elevator-1">1F</bu>
             <bu class="holdable select-floor" id="elevator-2">2F</bu>
             <bu class="holdable select-floor" id="elevator-3">3F</bu>
