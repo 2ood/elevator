@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <title>Elevator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="elevator.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <building>
-      <floor id="floor-1">
+      <!--<button type="button" id="test-button">test</button>-->
+      <floor floor="1">
         <h1>1</h1>
         <waiting-line>
           <client target-floor="1">🧍</client>
@@ -22,7 +24,7 @@
           <bu class="holdable down">🔽</bu>
         </buttongroup>
       </floor>
-      <floor id="floor-2">
+      <floor floor="2">
         <h1>2</h1>
         <waiting-line>
           <client target-floor="1">🧍</client>
@@ -33,7 +35,7 @@
           <bu class="holdable down">🔽</bu>
         </buttongroup>
       </floor>
-      <floor id="floor-3">
+      <floor floor="3">
         <h1>3</h1>
         <waiting-line>
           <client target-floor="1">🧍</client>
@@ -44,7 +46,7 @@
           <bu class="holdable down">🔽</bu>
         </buttongroup>
       </floor>
-      <floor id="floor-4">
+      <floor floor="4">
         <h1>4</h1>
         <waiting-line>
           <client target-floor="1">🧍</client>
@@ -56,7 +58,7 @@
         </buttongroup>
       </floor>
       <shaft>
-        <elevator>
+        <elevator id="elevator" current_floor="2" target_floor="2">
           <door id="left-door"></door>
           <door id="right-door"></door>
           <buttongroup>

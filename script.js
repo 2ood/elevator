@@ -6,32 +6,58 @@ const elev_close = document.getElementById("close");
 
 const holdables = [].slice.call(document.getElementsByClassName("holdable"));
 
-holdables.forEach((h)=>{
-  h.addEventListener("click",controlHoldables);
+const floor_button_up = [].slice.call(document.querySelectorAll("bu.up"));
+const floor_button_down = [].slice.call(document.querySelectorAll("bu.down"));
+
+const elevator_node = document.getElementById("elevator");
+const elevator = new Elevator(elevator_node);
+const controller = new Controller(elevator);
+
+floor_button_up.forEach((bu)=>{
+  bu.addEventListener("click",controlFloorButtonUp);
+});
+floor_button_down.forEach((bu)=>{
+  bu.addEventListener("click",controlFloorButtonDown);
 });
 
-elev_open.addEventListener("click",openDoor);
-elev_close.addEventListener("click",closeDoor);
+elev_open.addEventListener("click",()=>{controller.openDoor();});
+elev_close.addEventListener("click",()=>{controller.closeDoor();});
 
-function openDoor(evt){controlDoor(true);}
-function closeDoor(evt){controlDoor(false);}
 
-function controlDoor(want_to_open) {
-  const doors = [].slice.call(document.getElementsByTagName("DOOR"));
 
-  if(want_to_open) {
-    doors.forEach((door)=>{
-      door.classList.add("opened");
-    });
+/*
+const test_button = document.getElementById("test-button");
+test_button.addEventListener("click",(evt)=>{
+});
+*/
+
+
+function controlFloorButtonUp(evt) {
+  let src = evt.srcElement;
+  const this_floor = parseInt(src.parentNode.parentNode.getAttribute("floor"));
+  console.log(`calling from ${this_floor}`);
+  if(src.classList.contains("hold")){
+    src.classList.remove("hold");
   } else {
-    doors.forEach((door)=>{
-      door.classList.remove("opened");
+    src.classList.add("hold");
+    controller.listenUpDownButton({
+      floor : this_floor
     });
   }
+
 }
 
+function controlFloorButtonDown(evt) {
+  let src = evt.srcElement;
+  const this_floor = parseInt(evt.srcElement.parentNode.parentNode.getAttribute("floor"));
+  console.log(`calling from ${this_floor}`);
+  if(src.classList.contains("hold")){
+    src.classList.remove("hold");
+  } else {
+    src.classList.add("hold");
+    controller.listenUpDownButton({
+      floor :this_floor
+    });
 
-function controlHoldables(evt) {
-  const src = evt.srcElement;
-  src.classList.toggle("hold");
+  };
 }

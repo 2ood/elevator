@@ -61,6 +61,8 @@ elevator {
   width : calc(100% - 2 * var(--standard-gap));
   min-height : var(--min-floor-height);
   overflow : hidden;
+  top : 0;
+  transition : all 1s ease-in-out;
 }
 
 door {
@@ -74,7 +76,7 @@ door {
   border : var(--standard-border-width) solid white;
   top : 0;
   z-index : 1;
-  transition : all 1.5s ease-in-out;
+  transition : all 1s ease-in-out;
 }
 
 #left-door {
@@ -152,6 +154,22 @@ elevator bu.control-door:active {
   color : white;
 }
 
+elevator[target_floor='1']{
+    top : calc(3 * var(--min-floor-height));
+}
+
+elevator[target_floor='2']{
+    top : calc(2 * var(--min-floor-height));
+}
+
+elevator[target_floor='3']{
+    top : calc(1 * var(--min-floor-height));
+}
+
+elevator[target_floor='4']{
+    top : 0;
+}
+
 waiting-line {
   display : inline-flex;
   position : absolute;
@@ -193,4 +211,10 @@ client[target-floor="3"]::after {
 
 client[target-floor="4"]::after {
   content : '4';
+}
+
+#test_button {
+  display : inline-block;
+  position: absolute;
+  z-index : 100;
 }
