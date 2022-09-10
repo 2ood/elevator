@@ -1,0 +1,130 @@
+:root {
+  --width : calc(100vw);
+  --height : calc(100vh - 20px);
+  --num-floor : 4;
+  --min-floor-height : 25vh;
+  --standard-gap : 10px;
+  --standard-border-width : 1px;
+}
+
+* {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+}
+
+body {
+  position : relative;
+}
+
+building {
+  display : inline-flex;
+  position : absolute;
+  top : 0;
+  left : 0;
+  margin : 0 auto;
+  width : calc(var(--width) - 2 * var(--standard-gap));
+  padding : var(--standard-gap);
+  min-height : calc( var(--num-floor) * var(--min-floor-height) - 2 * var(--standard-gap));
+  flex-direction : column-reverse;
+}
+
+floor {
+  display : inline-block;
+  position : relative;
+  width : calc(100% - 2 * var(--standard-border));
+  flex-grow: 1;
+  border-bottom : var(--standard-border-width) solid black;
+  min-height: var(--min-floor-height);
+}
+
+floor:nth-of-type(2n) {
+  background-color : #33333322;
+}
+
+shaft {
+  display : inline-block;
+  position : absolute;
+  left : 50%;
+  width : 20%;
+  height : calc(100% - 2 * var(--standard-gap));
+  max-width : 300px;
+  transform: translateX(-50%);
+  border : var(--standard-border-width) dashed black;
+}
+
+elevator {
+  display : inline-block;
+  position : relative;
+  border : var(--standard-border-width) solid black;
+  margin : 0 var(--standard-gap);
+  width : calc(100% - 2 * var(--standard-gap));
+  min-height : var(--min-floor-height);
+  overflow : hidden;
+}
+
+door {
+  display : inline-block;
+  position : absolute;
+  width : 50%;
+  height : 100%;
+  min-width : 50%;
+  min-height : 100%;
+  background-color : #0099ff33;
+  border : var(--standard-border-width) solid white;
+  top : 0;
+  z-index : 1;
+}
+
+#left-door {
+  left : 0;
+}
+
+#right-door {
+  right : 0;
+}
+
+elevator buttongroup {
+  display : inline-grid;
+  position : absolute;
+  z-index : 2;
+  top : 50%;
+  left : 0;
+  transform: translateY(-50%);
+  gap : 3px;
+  padding : 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+floor buttongroup {
+  display : inline-flex;
+  position : absolute;
+  z-index : 2;
+  top : 50%;
+  left : min(40%, calc(50% - 150px));
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap : 3px;
+}
+
+bu {
+  cursor : pointer;
+  display : inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+elevator bu {
+  background-color: white;
+  border-radius: 2px;
+  border : var(--standard-border-width) solid black;
+}
+
+floor bu {
+  background-color : transparent;
+  border : none;
+}
+
+bu:active {
+  filter : hue-rotate(180deg);
+}

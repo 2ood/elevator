@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="kr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Elevator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <building>
+      <floor id="floor-1">
+        <buttongroup>
+          <bu class="up">🔼</bu>
+          <bu class="down">🔽</bu>
+        </buttongroup>
+      </floor>
+      <floor id="floor-2">
+        <buttongroup>
+          <bu class="up">🔼</bu>
+          <bu class="down">🔽</bu>
+        </buttongroup>
+      </floor>
+      <floor id="floor-3">
+        <buttongroup>
+          <bu class="up">🔼</bu>
+          <bu class="down">🔽</bu>
+        </buttongroup>
+      </floor>
+      <floor id="floor-4">
+        <buttongroup>
+          <bu class="up">🔼</bu>
+          <bu class="down">🔽</bu>
+        </buttongroup>
+      </floor>
+      <shaft>
+        <elevator>
+          <door id="left-door"></door>
+          <door id="right-door"></door>
+          <buttongroup>
+            <bu class="control-door" id="open"><|></bu>
+            <bu class="control-door" id="close">>|<</bu>
+            <bu class="select-floor" id="elevator-1">1F</bu>
+            <bu class="select-floor" id="elevator-2">2F</bu>
+            <bu class="select-floor" id="elevator-3">3F</bu>
+            <bu class="select-floor" id="elevator-4">4F</bu>
+          </buttongroup>
+        </elevator>
+      </shaft>
+    </building>
+  </body>
+</html>
