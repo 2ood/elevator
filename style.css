@@ -74,14 +74,22 @@ door {
   border : var(--standard-border-width) solid white;
   top : 0;
   z-index : 1;
+  transition : all 1.5s ease-in-out;
 }
 
 #left-door {
   left : 0;
 }
 
+#left-door.opened {
+  left : -100%;
+}
+
 #right-door {
   right : 0;
+}
+#right-door.opened {
+  right : -100%;
 }
 
 elevator buttongroup {
