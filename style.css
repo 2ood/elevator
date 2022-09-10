@@ -136,3 +136,11 @@ floor bu {
 bu:active {
   filter : hue-rotate(180deg);
 }
+
+bu.holdable.hold {
+  filter : hue-rotate(180deg);
+}
+
+elevator bu.holdable.hold {
+  background-color : coral;
+}
